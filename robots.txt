@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://erentass6.github.io/sitemap.xml
+Sitemap: https://erenvelitas.com/sitemap.xml
