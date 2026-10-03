@@ -1,0 +1,29 @@
+# Eren Taş — Portfolio
+
+A small, bilingual personal portfolio for selected web projects. Built with semantic HTML, responsive CSS, and vanilla JavaScript; there is no build step or runtime dependency.
+
+## Preview
+
+The site is published with GitHub Pages at <https://erentass6.github.io/>.
+
+## Run locally
+
+Open `index.html` in a browser, or serve this directory with a static HTTP server. If Python 3 is available, for example:
+
+```bash
+python -m http.server 8000
+```
+
+Then visit <http://localhost:8000>.
+
+## Contents
+
+- `index.html` — page content and metadata
+- `styles.css` — responsive layout and project illustrations
+- `script.js` — English/Turkish language toggle and mobile navigation
+
+The project descriptions link to the original GitHub repositories. Prototype status and current scope are described accurately in each project repository.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
