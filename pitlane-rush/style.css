@@ -1,0 +1,359 @@
+:root{color-scheme:dark;--ink:#080c10;--panel:#10171d;--line:#ffffff24;--muted:#93a0a5;--white:#f2f5f3;--lime:#c8f36b;--cyan:#78d8e5}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080c10;color:var(--white);font-family:Arial,Helvetica,sans-serif}
+button,select,input{font:inherit}
+button{color:inherit}
+.frame{position:fixed;inset:0;overflow:hidden;background:#090e14}
+#game{position:absolute;inset:0;width:100%;height:100%;display:block}
+.world-grade{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#070b10a8 0%,transparent 19%,transparent 45%,#070b10a6 100%),linear-gradient(90deg,#070b10a8,transparent 62%)}
+.topbar{position:absolute;z-index:12;top:0;left:0;right:0;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 4.2vw;border-bottom:1px solid #ffffff14;background:linear-gradient(180deg,#080c10b8,transparent)}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:#fff;font-size:13px;font-weight:900;letter-spacing:2.4px}
+.brand b{display:grid;place-items:center;width:31px;height:31px;background:var(--lime);color:#11180b;font-size:19px;font-style:italic;clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}
+.brand i{font-style:normal;color:var(--lime)}
+.world-label,.eyebrow,.home-bottom,.garage-car-tag,.save-indicator,.group-title,.garage-controls,.garage-dock-head>div>span,.car-switcher>span,.back-button,.setup-options label,.setup-aside,.setup-main>small,.hud,.map span{font-family:Consolas,'Courier New',monospace;letter-spacing:1px}
+.world-label{display:flex;gap:9px;align-items:center;font-size:10px;color:#c2cacc;letter-spacing:1.7px}
+.world-label i,.save-indicator i,.selected-car-card i{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 13px var(--lime)}
+.header-actions{display:flex;gap:9px}
+.header-actions button{width:38px;height:38px;border:1px solid #ffffff30;border-radius:50%;background:#11192077;color:#eef3ef;font-size:17px;cursor:pointer;transition:.18s}
+.header-actions button:hover{border-color:var(--lime);color:var(--lime);background:#121c20}
+.home-screen,.garage-screen,.overlay{position:absolute;inset:0;z-index:5}
+.home-screen{display:flex;align-items:center;padding:10vh 9vw 8vh;background:linear-gradient(90deg,#070b10e8 0%,#080d13b8 33%,transparent 71%)}
+.home-copy{width:min(495px,50vw);padding-top:20px}
+.eyebrow{font-size:9px;font-weight:600;letter-spacing:1.8px;color:#b4c0c1}
+.eyebrow span{color:var(--lime);margin-right:9px}
+.eyebrow b{color:var(--lime);padding:0 8px}
+.home-copy h1{font-size:clamp(82px,11vw,158px);line-height:.76;letter-spacing:-.075em;margin:27px 0 24px;font-weight:900}
+.home-copy>p{max-width:350px;color:#c4cdcd;font-size:14px;line-height:1.7;margin:0 0 27px}
+.home-actions{display:flex;align-items:center;gap:22px}
+.primary-action{height:52px;min-width:214px;display:inline-flex;justify-content:space-between;align-items:center;padding:0 17px 0 20px;border:0;background:var(--lime);color:#10160c;font-family:Consolas,'Courier New',monospace;font-size:10px;font-weight:900;letter-spacing:1.2px;cursor:pointer;transition:transform .2s,background .2s}
+.primary-action b{font-size:19px;font-weight:400}
+.primary-action:hover{transform:translateY(-2px);background:#ddff9a}
+.text-action{padding:10px 0;border:0;border-bottom:1px solid #ffffff55;background:transparent;color:#e8efed;font-family:Consolas,'Courier New',monospace;font-size:9px;letter-spacing:1.4px;cursor:pointer}
+.text-action span{padding-left:8px;color:var(--lime)}
+.home-readout{display:flex;gap:35px;margin-top:45px;padding-top:15px;border-top:1px solid #ffffff35}
+.home-readout div{display:flex;flex-direction:column;gap:7px}
+.home-readout small{font:9px Consolas,'Courier New',monospace;color:#8d9a9d;letter-spacing:1.2px}
+.home-readout strong{font:600 10px Consolas,'Courier New',monospace;letter-spacing:1px}
+.home-bottom{position:absolute;left:4.2vw;right:4.2vw;bottom:25px;display:flex;justify-content:space-between;color:#bac5c4;font-size:8px}
+.home-bottom span:last-child{color:var(--lime)}.home-bottom i{font-style:normal;color:#899395;margin-left:8px}
+.garage-screen{z-index:7;background:linear-gradient(180deg,#06090b7a 0%,transparent 31%,transparent 49%,#070a0ddd 69%,#070a0df7 100%)}
+.garage-head{position:absolute;top:91px;left:4.2vw;right:4.2vw;display:grid;grid-template-columns:1fr 2fr 1fr;align-items:start}
+.back-button{justify-self:start;display:flex;gap:10px;align-items:center;padding:11px 13px;border:1px solid #ffffff3a;background:#080d12a8;color:#e9efec;font-size:9px;cursor:pointer}
+.back-button:first-letter{font-size:17px}.back-button:hover{border-color:var(--lime);color:var(--lime)}
+.vehicle-heading{text-align:center;text-shadow:0 2px 18px #000}
+.vehicle-heading .eyebrow{font-size:8px}
+.vehicle-heading h2{margin:9px 0 6px;font-size:clamp(30px,4vw,54px);line-height:.95;letter-spacing:-.045em}
+.vehicle-heading p{display:flex;gap:11px;align-items:center;justify-content:center;margin:0;color:#c2ccce;font:9px Consolas,'Courier New',monospace;letter-spacing:1.2px}
+.vehicle-heading p i{width:3px;height:3px;background:var(--lime);border-radius:50%}
+.car-switcher{justify-self:end;display:flex;align-items:center;gap:12px;padding-top:2px}
+.car-switcher button{width:38px;height:38px;border:1px solid #ffffff38;background:#080d12a8;font-size:18px;cursor:pointer}
+.car-switcher button:hover{border-color:var(--lime);color:var(--lime)}
+.car-switcher>span{font-size:8px;color:#bdc7c7}
+.garage-car-tag{position:absolute;left:4.4vw;bottom:344px;display:flex;flex-direction:column;gap:7px;color:#eaf0ed;font-size:9px}
+.garage-car-tag>span{color:#9aa6a7;font-size:8px}
+.garage-car-tag strong{font:800 20px Arial,sans-serif;letter-spacing:.6px}
+.garage-car-tag small{margin-top:3px;font-size:7px;color:#8d9a9b}.garage-car-tag small i{font-style:normal;color:var(--lime);margin-left:6px}
+.garage-bottom{position:absolute;left:0;right:0;bottom:0;padding:17px 4.2vw 19px;background:linear-gradient(180deg,#080c108c,#080c10f5 27%);border-top:1px solid #ffffff20;backdrop-filter:blur(12px)}
+.garage-dock-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:12px}
+.garage-dock-head>div{display:flex;align-items:baseline;gap:13px}
+.garage-dock-head>div>span{font-size:8px;color:var(--lime)}
+.garage-dock-head>div>strong{font-size:19px;letter-spacing:-.4px}
+.save-indicator{display:flex;align-items:center;gap:8px;color:#9ba8a9;font-size:7px}
+.save-indicator i{width:5px;height:5px}
+.custom-grid{display:grid;grid-template-columns:minmax(175px,.78fr) minmax(330px,1.25fr) minmax(365px,1.45fr);gap:0;border-top:1px solid #ffffff1d;border-bottom:1px solid #ffffff1d}
+.custom-group{padding:13px 17px 14px 0;min-width:0}
+.custom-group+.custom-group{padding-left:18px;border-left:1px solid #ffffff1b}
+.group-title{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:8px}
+.group-title>span{color:var(--lime);font-size:8px}
+.group-title>b{font-weight:700;color:#e5ebea}
+.group-title>small{margin-left:auto;color:#768487;font-size:7px}
+.swatches{display:flex;align-items:center;gap:9px}
+.swatch,.custom-color{width:27px;height:27px;border:1px solid #ffffff3b;background:var(--swatch);cursor:pointer;transition:transform .16s,border .16s}
+.swatch:hover,.swatch.selected{transform:translateY(-2px);border:2px solid #fff;box-shadow:0 0 13px color-mix(in srgb,var(--swatch),transparent 52%)}
+.custom-color{position:relative;display:grid;place-items:center;background:#12191e;color:#fff;font-size:17px}
+.custom-color input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.choice-row{display:flex;flex-wrap:wrap;gap:5px;overflow:hidden;padding-bottom:2px}
+.choice-chip{min-width:59px;height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1px solid #ffffff20;background:#10171c;color:#aeb8b8;cursor:pointer}
+.choice-chip span{font:7px Consolas,'Courier New',monospace;letter-spacing:.5px}
+.choice-chip:hover,.choice-chip.selected{border-color:var(--lime);background:#c8f36b12;color:#f3f6ef}
+.rim-icon{position:relative;width:20px;height:20px;border:2px solid currentColor;border-radius:50%;background:repeating-conic-gradient(from 0deg,currentColor 0deg 7deg,transparent 7deg 43deg)}
+.rim-icon:after{content:"";position:absolute;inset:6px;border:1px solid currentColor;border-radius:50%;background:#10171c}
+.rim-icon.mesh{background:repeating-conic-gradient(currentColor 0 5deg,transparent 5deg 18deg)}
+.rim-icon.turbine{background:repeating-conic-gradient(from 16deg,currentColor 0 11deg,transparent 11deg 38deg)}
+.aero-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.aero-row label{display:flex;flex-direction:column;gap:5px;color:#8f9b9d;font:7px Consolas,'Courier New',monospace;letter-spacing:.8px}
+.aero-row select,.setup-options select{width:100%;height:35px;padding:0 27px 0 9px;border:1px solid #ffffff27;border-radius:0;appearance:none;outline:0;background-color:#11191e;color:#eaf0ec;font:9px Consolas,'Courier New',monospace;letter-spacing:.3px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#b3c0bf 50%),linear-gradient(135deg,#b3c0bf 50%,transparent 50%);background-position:calc(100% - 12px) 14px,calc(100% - 8px) 14px;background-size:4px 4px;background-repeat:no-repeat}
+.aero-row select:focus,.setup-options select:focus{border-color:var(--lime)}
+.garage-footer{display:flex;align-items:center;justify-content:space-between;padding-top:13px}
+.garage-controls{display:flex;gap:18px;color:#829092;font-size:7px}
+.garage-controls span{display:flex;gap:5px;align-items:center}
+kbd{min-width:22px;height:21px;display:inline-grid;place-items:center;border:1px solid #ffffff30;background:#182127;color:#e0e8e4;font:9px Consolas,'Courier New',monospace}
+.garage-continue{min-width:235px;height:42px}
+.native-car-choice{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.overlay{z-index:9;display:grid;place-items:center;padding:100px 5vw 36px;background:linear-gradient(90deg,#070b10df,#091018cf 58%,#080c10a8);backdrop-filter:blur(8px)}
+.setup-window{width:min(1040px,100%);display:grid;grid-template-columns:minmax(0,1.6fr) minmax(235px,.7fr);border:1px solid #ffffff2b;background:#0b1117ed;box-shadow:0 26px 100px #000b}
+.setup-main{padding:clamp(25px,4vw,54px)}
+.setup-main>.eyebrow{font-size:8px}
+.setup-main h2{margin:18px 0 8px;font-size:clamp(40px,5.5vw,70px);line-height:.88;letter-spacing:-.06em}
+.setup-main h2 em{font-style:normal;color:var(--lime)}
+.setup-main>p{margin:0 0 23px;color:#9fadae;font-size:12px;line-height:1.6}
+.setup-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px;margin-bottom:22px}
+.setup-options label{display:flex;flex-direction:column;gap:7px;color:#8f9b9c;font-size:8px}
+.setup-options label.wide-option{grid-column:1/-1}
+.setup-options select{height:40px;font-size:10px}
+.race-start{min-width:230px;height:48px}
+.setup-main>small{display:block;margin-top:13px;color:#8b9899;font-size:7px}
+.setup-aside{display:flex;flex-direction:column;padding:28px 23px;background:linear-gradient(160deg,#17232a,#0e151b 60%);border-left:1px solid #ffffff1e}
+.setup-aside .back-button{margin-bottom:auto}
+.selected-car-card{display:flex;flex-direction:column;gap:10px;margin:35px 0 25px;padding:19px 0;border-top:1px solid #ffffff26;border-bottom:1px solid #ffffff26}
+.selected-car-card>small,.setup-stat span{color:#91a0a1;font-size:8px}
+.selected-car-card>strong{font:bold 23px Arial,sans-serif;letter-spacing:-.5px}
+.selected-car-card>span{display:flex;align-items:center;gap:7px;color:#abb6b5;font-size:7px}
+.setup-stat{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #ffffff16}
+.setup-stat b{color:var(--lime);font-size:10px}
+.setup-note{display:flex;gap:11px;align-items:start;margin-top:auto;padding:12px;background:#c8f36b0c;color:#aab4b1;font-size:7px;line-height:1.65}
+.setup-note b{color:var(--lime);font-size:15px}
+.hud{position:absolute;z-index:10;top:21px;left:50%;transform:translateX(-50%);display:flex;align-items:stretch;gap:6px;pointer-events:none}
+.hud>div{min-width:79px;padding:9px 11px;background:#091016d9;border:1px solid #ffffff20;color:#8d999b;font-size:8px}
+.hud>div>span{display:block;font-size:7px;color:#8d999b}
+.hud strong{display:block;margin-top:5px;color:#f4f6f2;font:bold 21px Consolas,'Courier New',monospace;letter-spacing:-1px}
+.hud small{font:8px Consolas,'Courier New',monospace;color:#96a3a5}
+.hud .speed-hud{margin-left:auto}
+.hud .score-hud strong,.hud .gear-hud strong{color:var(--lime)}
+.hud .race-hud strong{font-size:15px;color:var(--lime)}
+.hud .nitro-hud{min-width:118px}
+.nitro-label{display:flex;justify-content:space-between;font-size:7px}
+.nitro-label strong{display:inline;margin:0;color:#87dff4;font:10px Consolas,'Courier New',monospace}
+.nitro-track{height:6px;margin-top:9px;background:#18242b;border:1px solid #ffffff21}
+.nitro-track i{display:block;width:100%;height:100%;background:linear-gradient(90deg,#168bff,#8bf0ff);box-shadow:0 0 9px #38c3ff}
+.map{position:absolute;z-index:10;right:24px;top:102px;width:160px;padding:7px;background:#080e14d9;border:1px solid #ffffff25}
+.map span{display:block;margin:1px 2px 5px;color:var(--lime);font-size:7px}
+.map canvas{display:block;width:100%;height:auto}
+.start-lights{position:absolute;z-index:11;top:100px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:13px;padding:8px 14px;background:#071019e8;border:1px solid #ffffff40}
+.start-lights[hidden],.home-screen[hidden],.garage-screen[hidden],.overlay[hidden],.hud[hidden],.map[hidden],.error-note[hidden]{display:none!important}
+.start-lights strong{min-width:28px;text-align:center;font:bold 25px Arial}
+.signal{display:flex;gap:6px}.signal i{width:18px;height:18px;border:4px solid #05080c;border-radius:50%;background:#293034}
+.start-lights[data-phase="0"] .signal i:nth-child(1),.start-lights[data-phase="1"] .signal i:nth-child(-n+2),.start-lights[data-phase="2"] .signal i:nth-child(3),.start-lights[data-phase="3"] .signal i:nth-child(3){box-shadow:0 0 15px currentColor}
+.start-lights[data-phase="0"] .signal i:nth-child(1),.start-lights[data-phase="1"] .signal i:first-child{background:#ff433b;color:#ff433b}
+.start-lights[data-phase="1"] .signal i:nth-child(2){background:#ffc247;color:#ffc247}
+.start-lights[data-phase="2"] .signal i:nth-child(3),.start-lights[data-phase="3"] .signal i:nth-child(3){background:#56ff94;color:#56ff94}
+.error-note{position:absolute;z-index:20;left:20px;right:20px;bottom:20px;padding:14px;background:#511d1d;color:white;font-size:13px}
+.setup-options[hidden]{display:none!important}
+#setupBack{margin-bottom:24px}
+@media(max-width:900px){
+ .garage-head{grid-template-columns:.7fr 1.6fr .9fr}
+ .custom-grid{grid-template-columns:160px minmax(255px,1.1fr) minmax(300px,1.3fr)}
+ .custom-group{padding-right:10px}.custom-group+.custom-group{padding-left:10px}
+ .choice-chip{min-width:51px}
+ .home-screen{padding-left:7vw}
+}
+@media(max-width:680px){
+ .topbar{height:59px;padding:0 17px}.brand{font-size:11px;letter-spacing:1.5px}.brand b{width:27px;height:27px}.world-label{font-size:7px;letter-spacing:.8px}.header-actions button{width:32px;height:32px}
+ .home-screen{align-items:center;padding:70px 23px 55px;background:linear-gradient(90deg,#070b10ea,#080d13a8 66%,#080d1366)}
+ .home-copy{width:100%;padding-top:0}.eyebrow{font-size:7px;letter-spacing:1px}
+ .home-copy h1{font-size:clamp(78px,20vw,120px);margin:24px 0 18px}
+ .home-copy>p{max-width:280px;font-size:12px}
+ .home-actions{gap:15px;flex-wrap:wrap}.primary-action{height:46px;min-width:185px;font-size:9px}.text-action{font-size:8px}
+ .home-readout{margin-top:31px;gap:20px}.home-readout strong{font-size:8px}.home-readout small{font-size:7px}
+ .home-bottom{left:18px;right:18px;bottom:13px;font-size:6px}.home-bottom span:last-child{display:none}
+ .garage-head{top:69px;left:16px;right:16px;grid-template-columns:38px 1fr 94px;align-items:center}
+ .back-button{padding:8px;font-size:7px}.back-button span{display:none}
+ .vehicle-heading h2{font-size:25px;margin:6px 0}.vehicle-heading .eyebrow{font-size:6px}
+ .vehicle-heading p{font-size:6px;gap:5px;white-space:nowrap}.vehicle-heading p span:last-child{display:none}
+ .car-switcher{gap:4px}.car-switcher>span{display:none}.car-switcher button{width:31px;height:31px}
+ .garage-car-tag{left:18px;bottom:302px;gap:5px}.garage-car-tag strong{font-size:16px}.garage-car-tag small{font-size:6px}
+ .garage-bottom{padding:11px 14px 12px}
+ .garage-dock-head{margin-bottom:8px}.garage-dock-head>div{gap:8px}.garage-dock-head>div>strong{font-size:16px}
+ .save-indicator{font-size:0}.save-indicator i{width:7px;height:7px}
+ .custom-grid{grid-template-columns:1fr 1fr;gap:0}
+ .custom-group{padding:8px 8px 9px 0}
+ .custom-group+.custom-group{padding-left:9px}
+ .body-group{grid-column:1/-1;border-left:0!important;border-top:1px solid #ffffff1b;padding:9px 0 8px!important}
+ .group-title{gap:5px;margin-bottom:7px;font-size:7px}.group-title>small{font-size:6px}
+ .swatches{gap:6px}.swatch,.custom-color{width:22px;height:22px}
+ .choice-row{gap:4px}.choice-chip{min-width:44px;height:43px}.choice-chip span{font-size:6px}.rim-icon{width:17px;height:17px}
+ .aero-row{gap:5px}.aero-row label{font-size:6px}.aero-row select{height:30px;padding-left:5px;font-size:7px}
+ .garage-footer{padding-top:8px}.garage-controls{display:none}.garage-continue{height:39px;min-width:190px;margin-left:auto}
+ .overlay{padding:70px 12px 15px;overflow:hidden;align-items:center}
+ .setup-window{grid-template-columns:1fr;max-width:440px;margin:auto}
+ .setup-main{padding:22px 18px}.setup-main h2{font-size:48px;margin:12px 0 7px}.setup-main>p{font-size:10px;margin-bottom:15px}
+ .setup-options{gap:8px 9px;margin-bottom:15px}.setup-options label{font-size:7px;gap:5px}.setup-options select{height:34px;font-size:8px;padding-left:6px}
+ .race-start{height:42px;min-width:190px}.setup-main>small{font-size:6px}
+ .setup-aside{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 18px;border-left:0;border-top:1px solid #ffffff1e}
+ .setup-aside .back-button{grid-column:1/-1;margin:0}.selected-car-card{grid-column:1/-1;margin:4px 0;padding:9px 0;gap:5px}.selected-car-card>strong{font-size:17px}
+ .setup-stat{padding:5px 0;display:flex;flex-direction:column;gap:5px}.setup-stat span{font-size:6px}.setup-stat b{font-size:8px}
+ .setup-note{grid-column:1/-1;margin-top:2px;font-size:6px;padding:7px}
+ .hud{top:7px;left:7px;right:7px;transform:none;gap:3px;justify-content:space-between}
+ .hud>div{min-width:0;padding:6px 5px;flex:1}.hud>div>span{font-size:6px}.hud strong{font-size:13px;margin-top:3px}.hud small{font-size:6px}.hud .race-hud strong{font-size:10px}.hud .nitro-hud{min-width:62px}.nitro-label{font-size:6px}.nitro-label strong{font-size:7px}.nitro-track{height:4px;margin-top:5px}
+ .map{top:58px;right:7px;width:105px;padding:4px}.map span{font-size:6px}.start-lights{top:62px;padding:5px 9px}.signal{gap:4px}.signal i{width:15px;height:15px}
+}
+@media(max-height:650px) and (min-width:681px){
+ .garage-head{top:72px}.garage-bottom{padding-top:10px;padding-bottom:10px}.custom-group{padding-top:9px;padding-bottom:9px}.garage-car-tag{bottom:260px}
+ .overlay{padding-top:82px;padding-bottom:16px}.setup-main{padding:24px 35px}.setup-main h2{font-size:46px;margin:10px 0 5px}.setup-main>p{margin-bottom:12px}.setup-options{gap:8px 11px;margin-bottom:12px}.setup-options select{height:34px}
+}
+.custom-grid{grid-template-columns:minmax(145px,.72fr) minmax(280px,1.25fr) minmax(330px,1.35fr) minmax(220px,1fr)}
+.tire-options{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-top:8px;padding-top:7px;border-top:1px solid #ffffff18}
+.tire-options>span,.ride-options>span,.glow-options>span{color:#839092;font:7px Consolas,'Courier New',monospace;letter-spacing:.8px;white-space:nowrap}
+.tire-options>div{display:flex;gap:4px}
+.tire-chip,.ride-chip,.glow-chip{height:23px;padding:0 7px;border:1px solid #ffffff22;background:#12191e;color:#a8b3b2;font:7px Consolas,'Courier New',monospace;cursor:pointer}
+.tire-chip.selected,.tire-chip:hover,.ride-chip.selected,.ride-chip:hover,.glow-chip.selected,.glow-chip:hover{border-color:var(--lime);color:#eaf4e2;background:#c8f36b12}
+.detail-group{display:flex;flex-direction:column;gap:7px}
+.detail-group .group-title{margin-bottom:0}
+.hood-option{display:flex;align-items:center;justify-content:space-between;color:#879394;font:7px Consolas,'Courier New',monospace;letter-spacing:.7px}
+.hood-option select{width:62%;height:26px;padding-left:7px;font-size:8px}
+.ride-options,.glow-options{display:flex;align-items:center;gap:5px}
+.ride-options>span,.glow-options>span{margin-right:auto}
+.ride-chip{min-width:39px;height:23px}
+.glow-chip{width:22px;height:22px;padding:0;font-weight:700}
+.glow-chip[data-glow="cyan"]{color:#69ddeb}.glow-chip[data-glow="violet"]{color:#c18bff}.glow-chip[data-glow="lime"]{color:#c8f36b}
+@media(max-width:900px){.custom-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.custom-group.body-group,.custom-group.detail-group{grid-column:1/-1}.custom-group.detail-group{border-left:0;border-top:1px solid #ffffff1b;padding:9px 0 8px}}
+@media(max-width:680px){.custom-group.rim-group .tire-options{margin-top:6px;padding-top:5px;gap:4px}.tire-options>span{font-size:6px}.tire-chip{height:20px;padding:0 4px;font-size:6px}.detail-group{gap:5px}.detail-group .group-title{margin-bottom:1px}.hood-option select{height:25px}.ride-chip{height:20px;min-width:35px}.glow-chip{width:20px;height:20px}}
+/* Keep every screen inside the viewport: option rows wrap instead of scrolling. */
+.choice-row{flex-wrap:wrap;overflow:hidden;scrollbar-width:none}
+.choice-row::-webkit-scrollbar{display:none}
+.choice-chip{flex:1 1 48px;min-width:45px}
+.overlay{overflow:hidden}
+.setup-window{max-height:calc(100vh - 112px)}
+.home-screen,.garage-screen,.overlay{overflow:hidden}
+@media(max-width:900px){
+ .custom-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .custom-group.body-group,.custom-group.detail-group{grid-column:1/-1}
+}
+@media(max-width:680px){
+ .overlay{padding:63px 10px 10px;align-items:center}
+ .setup-window{max-height:calc(100vh - 76px)}
+ .setup-aside{display:none}
+ .setup-main{padding:18px 16px}
+ .setup-main h2{font-size:42px;margin:10px 0 6px}
+ .setup-main>p{font-size:9px;margin-bottom:11px}
+ .setup-options{gap:7px 8px;margin-bottom:12px}
+ .setup-options select{height:31px}
+ .choice-row{gap:3px}
+ .choice-chip{flex:1 1 0;min-width:0;height:39px;padding:2px}
+ .choice-chip span{font-size:5.5px}
+ .garage-car-tag{display:none}
+ .garage-bottom{padding:8px 12px 9px}
+ .garage-dock-head{margin-bottom:5px}
+ .custom-group{padding-top:6px;padding-bottom:6px}
+ .custom-group+.custom-group{padding-left:7px}
+ .custom-group.body-group,.custom-group.detail-group{padding-top:7px!important;padding-bottom:6px!important}
+ .group-title{margin-bottom:5px}
+ .garage-footer{padding-top:6px}
+ .garage-continue{height:35px}
+ .tire-options{gap:3px}
+ .tire-options>div{gap:2px}
+ .tire-chip{padding:0 3px;font-size:5.5px}
+}
+@media(max-height:680px){
+ .garage-head{top:66px}
+ .garage-bottom{padding-top:8px;padding-bottom:8px}
+ .garage-dock-head{margin-bottom:6px}
+ .custom-group{padding-top:8px;padding-bottom:8px}
+ .choice-chip{height:43px}
+ .garage-footer{padding-top:8px}
+ .garage-continue{height:37px}
+ .garage-car-tag{bottom:300px}
+ .setup-main{padding-top:23px;padding-bottom:23px}
+ .setup-main h2{font-size:50px;margin:10px 0 5px}
+ .setup-main>p{font-size:10px;margin-bottom:13px}
+ .setup-options{gap:8px 10px;margin-bottom:14px}
+ .setup-options select{height:34px}
+}
+@media(max-height:680px) and (max-width:680px){
+ .garage-head{top:65px}
+ .garage-bottom{padding:6px 10px 7px}
+ .garage-dock-head{margin-bottom:4px}
+ .garage-dock-head>div>strong{font-size:14px}
+ .custom-group{padding-top:5px;padding-bottom:5px}
+ .custom-group.body-group,.custom-group.detail-group{padding-top:5px!important;padding-bottom:4px!important}
+ .group-title{margin-bottom:4px}
+ .choice-chip{height:35px}
+ .choice-chip .rim-icon{width:15px;height:15px}
+ .tire-options{margin-top:4px;padding-top:4px}
+ .tire-chip{height:18px}
+ .aero-row select,.hood-option select{height:25px}
+ .ride-chip,.glow-chip{height:18px}
+ .garage-continue{height:32px}
+ .overlay{padding-top:61px;padding-bottom:6px}
+ .setup-main{padding:13px 14px}
+ .setup-main h2{font-size:36px;margin:8px 0 4px}
+ .setup-main>p{font-size:8px;margin-bottom:8px}
+ .setup-options{gap:5px 7px;margin-bottom:8px}
+ .setup-options select{height:28px}
+ .race-start{height:35px}
+ .setup-main>small{margin-top:7px}
+}
+@media(max-height:520px){
+ .garage-car-tag,.garage-dock-head .save-indicator{display:none}
+ .garage-bottom{padding:5px 2.6vw}
+ .garage-dock-head{margin:0 0 4px}
+ .custom-grid{grid-template-columns:.75fr 1.15fr 1.25fr 1fr}
+ .custom-group,.custom-group+.custom-group,.custom-group.body-group,.custom-group.detail-group{grid-column:auto;padding:4px 7px}
+ .custom-group+.custom-group{border-top:0;border-left:1px solid #ffffff1b}
+ .group-title{margin-bottom:4px}
+ .choice-chip{height:32px}
+ .tire-options{margin-top:4px;padding-top:4px}
+ .garage-footer{padding-top:4px}
+ .garage-continue{height:30px}
+ .setup-window{grid-template-columns:minmax(0,1fr) 190px}
+ .setup-main{padding:12px 20px}
+ .setup-main h2{font-size:34px;margin:6px 0 3px}
+ .setup-main>p{margin-bottom:6px}
+ .setup-options{gap:4px 7px;margin-bottom:6px}
+ .setup-options select{height:26px}
+ .selected-car-card{margin:10px 0;padding:8px 0}
+ .setup-note{padding:7px}
+}
+.setup-options{max-height:none!important;overflow:visible!important;padding-right:0!important}
+.frame,.home-screen,.garage-screen,.garage-bottom,.setup-screen{overflow:hidden}
+.choice-row{overflow:hidden!important}
+.hud{top:86px}
+.map{top:86px}
+@media(max-width:680px){.hud{top:65px}.map{top:112px}.start-lights{top:112px}}
+@media(max-width:680px) and (max-height:520px){
+ .garage-bottom{padding:4px 9px}
+ .garage-dock-head{margin:0 0 2px}
+ .garage-dock-head>div>strong{font-size:13px}
+ .custom-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+ .custom-group,.custom-group+.custom-group,.custom-group.body-group,.custom-group.detail-group{grid-column:auto!important;padding:4px 6px!important;border-top:0!important;border-left:1px solid #ffffff1b}
+ .custom-group:first-child,.custom-group:nth-child(odd){border-left:0}
+ .group-title{gap:4px;margin-bottom:3px;font-size:6px}
+ .group-title>small{font-size:5px}
+ .swatches{flex-wrap:wrap;gap:3px}
+ .swatch,.custom-color{width:18px;height:18px}
+ .choice-row{gap:2px}
+ .choice-chip{flex:1 1 0;min-width:0;height:31px;padding:2px}
+ .choice-chip .rim-icon{width:14px;height:14px}
+ .choice-chip span{font-size:5px}
+ .tire-options{gap:3px;margin-top:3px;padding-top:3px}
+ .tire-options>span{font-size:5px}
+ .tire-chip{height:18px;padding:0 3px;font-size:5px}
+ .aero-row{gap:3px}
+ .aero-row label{font-size:5px;gap:3px}
+ .aero-row select,.hood-option select{height:21px;padding-left:3px;font-size:6px}
+ .detail-group{gap:3px}
+ .hood-option{font-size:5px}
+ .ride-options,.glow-options{gap:3px}
+ .ride-options>span,.glow-options>span{font-size:5px}
+ .ride-chip,.glow-chip{height:17px;min-width:27px;padding:0 3px;font-size:5px}
+ .glow-chip{width:17px;min-width:17px}
+ .garage-footer{padding-top:3px}
+ .garage-continue{height:28px;min-width:0;width:min(100%,210px);font-size:7px}
+}
+@media(min-width:681px) and (max-width:900px){
+ .garage-bottom{padding:9px 3vw 11px}
+ .garage-dock-head{margin-bottom:6px}
+ .save-indicator{font-size:0}
+ .custom-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .custom-group.body-group,.custom-group.detail-group{grid-column:auto!important}
+ .custom-group.detail-group{border-top:0!important;border-left:1px solid #ffffff1b;padding:9px 0 8px 10px}
+ .custom-group{padding-top:8px;padding-bottom:9px}
+ .group-title{margin-bottom:6px}
+ .choice-chip{height:42px}
+ .aero-row select{height:30px}
+ .garage-footer{padding-top:8px}
+}
+.camera-toggle{position:absolute;right:18px;bottom:18px;z-index:12;pointer-events:auto;padding:11px 14px;border:1px solid #ffffff55;background:#081119d9;color:#eef4f1;font:700 9px Consolas,'Courier New',monospace;letter-spacing:1px;cursor:pointer;box-shadow:0 5px 22px #0008;backdrop-filter:blur(8px)}
+.camera-toggle[hidden]{display:none!important}
+.camera-toggle:hover{border-color:var(--lime);color:var(--lime)}
+@media(max-width:680px){.camera-toggle{right:8px;bottom:8px;padding:9px 10px;font-size:7px}}

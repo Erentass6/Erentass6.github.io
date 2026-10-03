@@ -1,10 +1,14 @@
 # Eren Taş — Portfolio
 
-A small, bilingual personal portfolio for selected web projects. Built with semantic HTML, responsive CSS, and vanilla JavaScript; there is no build step or runtime dependency.
+A bilingual personal portfolio for selected web projects. Built with semantic HTML, responsive CSS, and vanilla JavaScript; there is no build step or runtime dependency. The site includes a persistent light/dark theme switch and a playable browser build of Pitlane Rush.
 
 ## Preview
 
-The site is published with GitHub Pages at <https://erentass6.github.io/>.
+The site is published with GitHub Pages at <https://erenvelitas.com/>.
+
+## Featured game
+
+[Play Pitlane Rush](https://erenvelitas.com/pitlane-rush/) or browse its source at <https://github.com/Erentass6/Pitlane-Rush>.
 
 ## Run locally
 
@@ -20,7 +24,8 @@ Then visit <http://localhost:8000>.
 
 - `index.html` — page content and metadata
 - `styles.css` — responsive layout and project illustrations
-- `script.js` — English/Turkish language toggle and mobile navigation
+- `script.js` — English/Turkish language toggle, persistent theme switch, and mobile navigation
+- `pitlane-rush/` — static browser build of the 3D driving game
 
 The project descriptions link to the original GitHub repositories. Prototype status and current scope are described accurately in each project repository.
 

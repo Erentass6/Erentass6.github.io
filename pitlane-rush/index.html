@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d12">
+  <title>Pitlane Rush — Garage & Race</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="frame" id="gameFrame">
+  <canvas id="game" width="1600" height="900" aria-label="Pitlane Rush 3D sürüş oyunu"></canvas>
+  <div class="world-grade"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Pitlane Rush"><b>P</b><span>PITLANE <i>RUSH</i></span></a>
+    <div class="world-label"><i></i><span id="worldLabel">PACIFIC COAST · 23:48</span></div>
+    <div class="header-actions">
+      <button id="sound" aria-label="Ses ve müzik" title="Ses">♫</button>
+      <button id="fullscreen" aria-label="Tam ekran" title="Tam ekran">⛶</button>
+    </div>
+  </header>
+
+  <section class="home-screen" id="homeScreen">
+    <div class="home-copy">
+      <div class="eyebrow"><span>01</span> NIGHT DRIVE SERIES <b>•</b> SEASON 01</div>
+      <h1>YOL<br>SENİN.</h1>
+      <p>Motoru çalıştır. Kıyı otoyoluna çık. Kendi çizgini bul.</p>
+      <div class="home-actions">
+        <button class="primary-action" id="openGarage"><span>GARAJA GİR</span><b>↗</b></button>
+        <button class="text-action" id="openSetup">HIZLI YARIŞ <span>→</span></button>
+      </div>
+      <div class="home-readout">
+        <div><small>PARKUR</small><strong id="homeTrack">PACIFIC CAUSEWAY</strong></div>
+        <div><small>HAZIR ARAÇ</small><strong id="homeCar">APEX GT</strong></div>
+      </div>
+    </div>
+    <div class="home-bottom"><span>WASD / OKLAR İLE SÜR · SPACE EL FRENİ · SHIFT NİTRO</span><span>01 — 07 <i>AVAILABLE ROUTES</i></span></div>
+  </section>
+
+  <section class="garage-screen" id="garageScreen" hidden>
+    <div class="garage-head">
+      <button class="back-button" id="garageBack" aria-label="Ana ekrana dön">← <span>GERİ</span></button>
+      <div class="vehicle-heading">
+        <div class="eyebrow"><span>01 / 15</span> PITLANE CUSTOMS</div>
+        <h2 id="garageCarName">APEX GT</h2>
+        <p><span id="garageCarClass">TRACK SPORT · RWD</span><i></i><span id="garageCarPower">620 HP</span><i></i><span id="garageCarDrive">V8 · 7 SPEED</span></p>
+      </div>
+      <div class="car-switcher"><button id="carPrev" aria-label="Önceki araç">←</button><span>ARAÇ DEĞİŞTİR</span><button id="carNext" aria-label="Sonraki araç">→</button></div>
+    </div>
+    <div class="garage-car-tag"><span>SEÇİLİ ARAÇ</span><strong id="garageTagName">APEX GT</strong><small>ÖN İZLEME <i>● CANLI</i></small></div>
+    <div class="garage-bottom">
+      <div class="garage-dock-head"><div><span class="eyebrow">KİŞİSELLEŞTİR</span><strong>Aracını kur.</strong></div><span class="save-indicator"><i></i> DEĞİŞİKLİKLER OTOMATİK KAYDEDİLİR</span></div>
+      <div class="custom-grid">
+        <section class="custom-group paint-group"><div class="group-title"><span>01</span><b>BOYA</b><small>GÖVDE RENGİ</small></div>
+          <div class="swatches">
+            <button class="swatch selected" data-paint="#c8f36b" style="--swatch:#c8f36b" aria-label="Lime yeşil"></button>
+            <button class="swatch" data-paint="#e94c45" style="--swatch:#e94c45" aria-label="Kırmızı"></button>
+            <button class="swatch" data-paint="#5d9ff1" style="--swatch:#5d9ff1" aria-label="Mavi"></button>
+            <button class="swatch" data-paint="#f1eee3" style="--swatch:#f1eee3" aria-label="Beyaz"></button>
+            <button class="swatch" data-paint="#a36dea" style="--swatch:#a36dea" aria-label="Mor"></button>
+            <label class="custom-color" title="Özel renk"><input type="color" id="paintColor" value="#c8f36b"><span>＋</span></label>
+          </div>
+        </section>
+        <section class="custom-group rim-group"><div class="group-title"><span>02</span><b>JANT</b><small>5 TASARIM</small></div>
+          <div class="choice-row">
+            <button class="choice-chip selected" data-rim="silver"><i class="rim-icon five"></i><span>FORGED</span></button>
+            <button class="choice-chip" data-rim="black"><i class="rim-icon mesh"></i><span>MESH</span></button>
+            <button class="choice-chip" data-rim="gold"><i class="rim-icon turbine"></i><span>TURBINE</span></button>
+            <button class="choice-chip" data-rim="bronze"><i class="rim-icon five"></i><span>BRONZE</span></button>
+            <button class="choice-chip" data-rim="neon"><i class="rim-icon five"></i><span>CYAN</span></button>
+          </div><div class="tire-options"><span>LASTİK HAMURU</span><div><button class="tire-chip selected" data-tire="road">ROAD</button><button class="tire-chip" data-tire="sport">SPORT</button><button class="tire-chip" data-tire="semi">SEMI-SLICK</button></div></div>
+        </section>
+        <section class="custom-group body-group"><div class="group-title"><span>03</span><b>AERO PARÇALAR</b><small>ÖN · ARKA · SPOILER</small></div>
+          <div class="aero-row"><label>ÖN TAMPON<select id="frontBumper"><option value="0">TRACK</option><option value="1">WIDE AERO</option><option value="2">GT CANARD</option></select></label><label>ARKA TAMPON<select id="rearBumper"><option value="0">STREET</option><option value="1">WIDE</option><option value="2">RACE</option></select></label><label>SPOILER<select id="spoilerStyle"><option value="0">DUCKTAIL</option><option value="1">GT WING</option><option value="2">TIME ATTACK</option></select></label></div>
+        </section><section class="custom-group detail-group"><div class="group-title"><span>04</span><b>STİL & IŞIK</b><small>SON DOKUNUŞLAR</small></div><label class="hood-option">KAPUT<select id="hoodStyle"><option value="0">STOCK</option><option value="1">DUAL VENT</option><option value="2">POWER DOME</option></select></label><div class="ride-options"><span>YÜKSEKLİK</span><button class="ride-chip" data-ride="0">LOW</button><button class="ride-chip selected" data-ride="1">TRACK</button><button class="ride-chip" data-ride="2">RALLY</button></div><div class="glow-options"><span>TABAN IŞIĞI</span><button class="glow-chip selected" data-glow="cyan" aria-label="Turkuaz ışık">C</button><button class="glow-chip" data-glow="violet" aria-label="Mor ışık">V</button><button class="glow-chip" data-glow="lime" aria-label="Yeşil ışık">L</button><button class="glow-chip" data-glow="off" aria-label="Kapalı">×</button></div></section>
+      </div>
+      <div class="garage-footer">
+        <div class="garage-controls"><span><kbd>←</kbd><kbd>→</kbd> ARAÇ</span><span><kbd>ESC</kbd> GERİ</span></div>
+        <button class="primary-action garage-continue" id="garageDone"><span>YARIŞ MENÜSÜNE GEÇ</span><b>↗</b></button>
+      </div>
+    </div>
+    <select id="carChoice" class="native-car-choice" aria-label="Araç seç">
+      <option value="0">Apex GT</option><option value="1">Vortex RS</option><option value="2">Neon S</option><option value="3">Tempest R</option><option value="4">Falcon XR</option><option value="5">Striker 900</option><option value="6">Cobra GT</option><option value="7">Pulse Z</option><option value="8">Phantom X</option><option value="9">Raptor V</option><option value="10">Mirage RS</option><option value="11">Titan Sport</option><option value="12">Aero S1</option><option value="13">Nova GT</option><option value="14">Reaper V12</option>
+    </select><select id="rimStyle" class="native-car-choice" aria-label="Jant tipi"><option value="silver">Forged</option><option value="black">Mesh</option><option value="gold">Turbine</option><option value="bronze">Bronze</option><option value="neon">Cyan</option></select><select id="tireStyle" class="native-car-choice"><option value="road">Road</option><option value="sport">Sport</option><option value="semi">Semi Slick</option></select><select id="rideStyle" class="native-car-choice"><option value="0">Low</option><option value="1">Track</option><option value="2">Rally</option></select><select id="glowStyle" class="native-car-choice"><option value="cyan">Cyan</option><option value="violet">Violet</option><option value="lime">Lime</option><option value="off">Off</option></select></section>
+
+  <section class="overlay setup-screen" id="overlay" hidden>
+    <div class="setup-window">
+      <div class="setup-main">
+        <div class="eyebrow"><span>02</span> RACE CONTROL <b>•</b> ETKİNLİK AYARLARI</div>
+        <h2 id="title">Yarışını<br><em>oluştur.</em></h2>
+        <p id="description">Parkur ve yarış koşullarını seç. Sonra start çizgisinde buluşalım.</p>
+        <div class="setup-options" id="setupOptions">
+          <label class="wide-option">PARKUR<select id="mapChoice"><option value="0">Pacific Causeway · Deniz</option><option value="1">Sahara Run · Çöl</option><option value="2">Alpine Ring · Dağ</option><option value="3">Neon District · Şehir</option><option value="4">Emerald Forest · Orman</option><option value="5">Redrock Canyon · Kanyon</option><option value="6">Frostline Pass · Kar</option></select></label>
+          <label>SAAT<select id="timeOfDay"><option value="night">Gece</option><option value="day">Gündüz</option></select></label>
+          <label>YARIŞÇI<select id="opponentCount"><option value="4">4 kişi</option><option value="8">8 kişi</option><option value="12">12 kişi</option><option value="16">16 kişi</option><option value="24">24 kişi</option><option value="32">32 kişi</option><option value="48">48 kişi</option><option value="64" selected>64 kişi</option></select></label>
+          <label>ŞERİT<select id="laneCount"><option value="2">2 şerit</option><option value="3">3 şerit</option><option value="4">4 şerit</option><option value="5">5 şerit</option><option value="6">6 şerit</option><option value="7">7 şerit</option><option value="8" selected>8 şerit</option></select></label>
+          <label>ZORLUK<select id="difficulty"><option value="easy">Kolay</option><option value="medium" selected>Orta</option><option value="hard">Zor</option></select></label>
+          <label>KAMERA<select id="cameraMode"><option value="chase">Takip kamerası</option><option value="cockpit">Kokpit / içten</option></select></label>
+          <label>VİTES<select id="transmission"><option value="auto">Otomatik</option><option value="manual">Manuel · Q/E</option></select></label>
+          <label>MÜZİK<select id="musicChoice"><option value="night">Midnight Pulse</option><option value="coast">Coastal Drive</option><option value="neon">Neon Run</option><option value="off">Müzik kapalı</option></select></label>
+          <label>MOTOR SESİ<select id="engineSoundMode"><option value="throttle" selected>Gazdayken</option><option value="off">Kapalı</option></select></label>
+        </div>
+        <button class="primary-action race-start" id="start"><span>YARIŞA BAŞLA</span><b>↗</b></button>
+        <small id="hint">WASD / OKLAR · SPACE DRIFT · SHIFT NİTRO · Q/E VİTES</small>
+      </div>
+      <aside class="setup-aside">
+        <button class="back-button" id="setupBack">← <span>GARAJA DÖN</span></button>
+        <div class="selected-car-card"><small>ARACIN</small><strong id="setupCarName">APEX GT</strong><span><i></i> HAZIR · KİŞİSELLEŞTİRİLDİ</span></div>
+        <div class="setup-stat"><span>EN İYİ SKOR</span><b id="best">000000</b></div>
+        <div class="setup-stat"><span>TOPLAM MESAFE</span><b id="total">0 m</b></div>
+        <div class="setup-note"><b>✳</b><span>GRIDDE HERKESE EŞİT START. IŞIKLAR YEŞİLE DÖNÜNCE GAZLA.</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="hud" id="hud" hidden>
+    <div class="gear-hud"><span>VİTES</span><strong id="gear">N</strong><small id="rpm">850 RPM</small></div>
+    <div class="speed-hud"><span>HIZ</span><strong><b id="speed">0</b><small> KM/H</small></strong></div>
+    <div class="distance-hud"><span>MESAFE</span><strong><b id="distance">0</b><small> M</small></strong></div>
+    <div class="score-hud"><span>SKOR</span><strong class="lime" id="score">000000</strong></div>
+    <div class="race-hud"><span>POZİSYON · YARIŞ <b id="raceNo">01</b></span><strong id="position">1 / 8</strong><small id="raceTimer">01:45</small></div>
+    <div class="nitro-hud"><div class="nitro-label"><span>NİTRO</span><strong><b id="nitroAmount">100</b>%</strong></div><div class="nitro-track"><i id="nitroFill"></i></div></div>
+  </div>
+  <button class="camera-toggle" id="cameraToggle" type="button" hidden>KAMERA · TAKİP</button>
+  <div class="map" hidden><span id="mapName">PACIFIC CAUSEWAY</span><canvas id="mapCanvas" width="180" height="128"></canvas></div>
+  <div class="start-lights" id="startLights" hidden><div class="signal"><i></i><i></i><i></i></div><strong>3</strong></div>
+  <div class="error-note" id="errorNote" hidden>3D görüntü başlatılamadı. Güncel Chrome veya Edge deneyin.</div>
+</main>
+<script src="vendor/three.min.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

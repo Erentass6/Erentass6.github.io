@@ -26,6 +26,15 @@
     </script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='20' fill='%231d2523'/%3E%3Ctext x='40' y='51' text-anchor='middle' font-family='Arial' font-size='30' font-weight='700' fill='%23c4f06b'%3EET%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("eren-portfolio-theme");
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = savedTheme || (systemPrefersDark ? "dark" : "light");
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -45,6 +54,7 @@
         <a class="nav-contact" href="#contact" data-en="Get in touch" data-tr="İletişim">Get in touch <span aria-hidden="true">↗</span></a>
       </nav>
       <button class="language-toggle" type="button" aria-label="Switch language to Turkish">TR</button>
+      <button class="theme-toggle" type="button" aria-label="Enable dark mode" aria-pressed="false"><span aria-hidden="true">◐</span><span class="sr-only" data-en="Dark mode" data-tr="Koyu tema">Dark mode</span></button>
     </header>
 
     <main id="main">
@@ -80,6 +90,14 @@
         </div>
 
         <div class="project-grid">
+          <article class="project-card project-featured">
+            <a class="project-visual visual-pitlane" href="/pitlane-rush/" aria-label="Play Pitlane Rush">
+              <div class="pitlane-sky"><span class="pitlane-moon"></span><span class="pitlane-stars">✦ &nbsp; · &nbsp; ✦ &nbsp; · &nbsp; ✦</span><span class="pitlane-horizon"></span><span class="pitlane-track"><i></i><i></i><i></i></span><span class="pitlane-car car-one">▰</span><span class="pitlane-car car-two">▰</span><span class="pitlane-title"><small>NIGHT DRIVE SERIES · 3D RACING</small><b>PITLANE <i>RUSH</i></b><span>START YOUR ENGINE&nbsp; ↗</span></span></div>
+              <span class="visual-arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="project-info"><div class="project-title-row"><h3>Pitlane Rush</h3><span class="project-index">07</span></div><p data-en="A browser-based 3D driving game with a customizable garage, 15 cars, seven environments, race settings, and keyboard controls. Built with Three.js and vanilla JavaScript." data-tr="Garaj özelleştirmeleri, 15 araç, yedi ortam, yarış ayarları ve klavye kontrolleri içeren tarayıcı tabanlı 3D sürüş oyunu. Three.js ve yalın JavaScript ile geliştirildi.">A browser-based 3D driving game with a customizable garage, 15 cars, seven environments, race settings, and keyboard controls. Built with Three.js and vanilla JavaScript.</p><div class="project-bottom"><div class="tag-list"><span>Three.js</span><span>JavaScript</span><span>Web Audio</span></div><div class="project-actions"><a class="project-link" href="/pitlane-rush/"><span data-en="Play game" data-tr="Oyunu oyna">Play game</span><span aria-hidden="true">↗</span></a><a class="project-link" href="https://github.com/Erentass6/Pitlane-Rush" target="_blank" rel="noopener noreferrer"><span data-en="Source" data-tr="Kaynak kod">Source</span><span aria-hidden="true">↗</span></a></div></div></div>
+          </article>
+
           <article class="project-card project-featured">
             <a class="project-visual visual-synapse" href="https://github.com/Erentass6/synapse-ai" target="_blank" rel="noopener noreferrer" aria-label="View Synapse AI on GitHub">
               <div class="visual-topline"><span class="window-dots"><i></i><i></i><i></i></span><span>SYNAPSE / WORKFLOW</span><span class="visual-live"><i></i> PROTOTYPE</span></div>
