@@ -109,6 +109,28 @@ h2{font:600 clamp(35px,4.6vw,57px)/1.07 var(--display);letter-spacing:-.07em;mar
 .game-ball{position:absolute;top:70%;left:50%;width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 32%,#fff 0 18%,#292e27 20% 27%,#fff 29%);box-shadow:0 0 0 2px #fff5;transform:translateX(-50%)}
 .game-shadow{position:absolute;top:75%;left:50%;width:23px;height:6px;border-radius:50%;background:#1118;transform:translateX(-50%)}
 .game-prompt{position:absolute;bottom:16px;left:0;right:0;text-align:center;font:400 7px var(--mono);letter-spacing:.08em;color:#c7d5c0}
+.visual-dragon{background:#141b35;color:#f3edd6}
+.dragon-stage{position:absolute;inset:40px 0 0;overflow:hidden;background:linear-gradient(180deg,#222c50 0%,#373b5b 58%,#5a3b37 100%)}
+.dragon-moon{position:absolute;top:30px;right:17%;width:61px;height:61px;border-radius:50%;background:#f2d9a0;box-shadow:0 0 48px #efcb8b7a}
+.dragon-star{position:absolute;color:#f7e5b3;font-size:11px}.star-a{top:35px;left:25%}.star-b{top:83px;right:37%;font-size:8px}
+.dragon-ridge{position:absolute;left:-5%;right:-5%;bottom:43px;height:119px;clip-path:polygon(0 69%,13% 41%,24% 59%,37% 14%,52% 58%,64% 32%,76% 61%,88% 24%,100% 62%,100% 100%,0 100%)}
+.ridge-back{background:#31394e;bottom:47px;opacity:.9}.ridge-front{background:#273044;height:87px;clip-path:polygon(0 56%,16% 27%,32% 58%,49% 20%,66% 54%,82% 18%,100% 51%,100% 100%,0 100%)}
+.dragon-pillar{position:absolute;bottom:42px;width:57px;height:102px;background:linear-gradient(90deg,#853e3a,#be6951 50%,#793536);box-shadow:0 0 18px #140e1f66}
+.dragon-pillar:before{content:'';position:absolute;left:-13px;top:-16px;width:83px;height:20px;background:#d19b55;clip-path:polygon(0 100%,14% 35%,28% 50%,42% 0,58% 0,72% 50%,86% 35%,100% 100%)}
+.dragon-pillar i{position:absolute;top:14px;left:11px;width:35px;height:49px;border:1px solid #e8c67577;border-radius:50% 50% 7px 7px}
+.pillar-left{left:18%;transform:scale(.84);transform-origin:bottom}.pillar-right{right:15%;height:126px}
+.dragon-player{position:absolute;left:46%;top:39%;color:#cf905d;font:700 14px var(--mono);letter-spacing:.12em;transform:rotate(-9deg);text-shadow:0 4px 18px #f2bb7e99}
+.dragon-hint{position:absolute;left:0;right:0;bottom:12px;text-align:center;color:#e5d4af;font:400 7px var(--mono);letter-spacing:.16em}
+.visual-taskmaster{background:#e9eadf;color:#26322c;padding:15px}
+.task-scene{position:absolute;inset:16px 18px 17px;border:1px solid #d6d9cc;border-radius:7px;background:#fbfcf7;box-shadow:0 16px 38px #2735291a;overflow:hidden}
+.task-window-bar{height:37px;border-bottom:1px solid #eceee7;display:flex;align-items:center;justify-content:space-between;padding:0 13px;color:#899087;font:400 7px var(--mono);letter-spacing:.1em}
+.task-window-bar .window-dots i:first-child{background:#db9b83}.task-window-bar .window-dots i:nth-child(2){background:#e2c97d}.task-window-bar .window-dots i:nth-child(3){background:#92b98a}
+.task-content{max-width:295px;margin:26px auto 0;padding:0 19px;display:flex;flex-direction:column;align-items:flex-start}
+.task-content>small{color:#79877a;font:400 7px var(--mono);letter-spacing:.13em}.task-content>b{margin:8px 0 15px;font:600 27px var(--display);letter-spacing:-.055em}
+.task-row{height:37px;display:flex;align-items:center;gap:11px;color:#4a534b;font-size:9px}
+.task-row>i{width:13px;height:13px;border:1px solid #aab2a5;border-radius:50%;display:grid;place-items:center;font-size:8px;font-style:normal;color:#344638}
+.task-done{color:#8a9288;text-decoration:line-through}.task-done>i{background:#c9e1b8;border-color:#a4c28e}
+.task-progress{width:100%;height:4px;border-radius:4px;background:#e9eee4;margin:13px 0 9px}.task-progress span{display:block;width:33%;height:100%;border-radius:4px;background:#849b6d}
 .project-info{padding:20px 4px 0}
 .project-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
 .project-title-row h3{font:600 20px var(--display);letter-spacing:-.05em;margin:0}
