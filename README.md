@@ -1,6 +1,6 @@
 # Eren Taş — Portfolio
 
-A bilingual personal portfolio for selected web projects. Built with semantic HTML, responsive CSS, and vanilla JavaScript; there is no build step or runtime dependency. The site includes a persistent light/dark theme switch and a playable browser build of Pitlane Rush.
+A bilingual portfolio for AI-assisted video, editing, and selected web projects. Built with semantic HTML, responsive CSS, and vanilla JavaScript; there is no build step or runtime dependency. The site includes a persistent light/dark theme switch and direct Bionluk, WhatsApp, and LinkedIn contact links.
 
 ## Preview
 
@@ -9,6 +9,10 @@ The site is published with GitHub Pages at <https://erenvelitas.com/>.
 ## Featured game
 
 [Play Pitlane Rush](https://erenvelitas.com/pitlane-rush/) or browse its source at <https://github.com/Erentass6/Pitlane-Rush>.
+
+## Video services
+
+The [AI video and editing section](https://erenvelitas.com/#video-ai) describes AI-assisted video concepts, promotional and social content, and editing services.
 
 ## Run locally
 

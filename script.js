@@ -43,6 +43,10 @@ function setLanguage(language) {
     );
   });
 
+  document.querySelectorAll("[data-en-href][data-tr-href]").forEach((element) => {
+    element.setAttribute("href", isTurkish ? element.dataset.trHref : element.dataset.enHref);
+  });
+
   languageButton.textContent = isTurkish ? "EN" : "TR";
   languageButton.setAttribute(
     "aria-label",
