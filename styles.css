@@ -175,7 +175,7 @@ h2{font:600 clamp(35px,4.6vw,57px)/1.07 var(--display);letter-spacing:-.07em;mar
 .contact-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-top:29px;padding-top:21px;border-top:1px solid var(--line)}
 .contact-bottom p{max-width:420px;margin:0;color:#6d756f;font-size:13px;line-height:1.8}
 .contact-actions{justify-content:flex-end}
-.button-lime{background:var(--lime);color:var(--ink);min-width:177px;justify-content:space-between}.button-lime:hover{background:#b9e859}
+.button-lime{background:var(--lime);color:#1d2523;min-width:177px;justify-content:space-between}.button-lime:hover{background:#b9e859}
 .button-lime span:last-child{font-size:17px}
 .site-footer{min-height:77px;display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);color:#858d87;font:400 9px var(--mono);letter-spacing:.045em}
 .footer-brand{font:700 14px var(--display);letter-spacing:-.06em;color:var(--ink)}.footer-brand span{color:#87a93e}
