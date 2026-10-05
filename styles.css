@@ -223,6 +223,10 @@ h2{font:600 clamp(35px,4.6vw,57px)/1.07 var(--display);letter-spacing:-.07em;mar
 [data-theme="dark"] .site-nav a:hover,[data-theme="dark"] .text-link:hover,[data-theme="dark"] .project-link:hover{color:var(--lime)}
 [data-theme="dark"] .button-dark{background:#263329;color:#f3f5ed;border:1px solid #526148}
 [data-theme="dark"] .button-dark:hover{background:#334333}
+.hero-copy h1 em{font-style:normal;color:#8aa849}
+.hero-actions{flex-wrap:wrap;gap:14px}
+.hero-actions .button-lime{min-width:0}
+[data-theme="dark"] .hero-copy h1 em{color:var(--lime)}
 
 @media(max-width:1000px){.video-services{grid-template-columns:1fr;gap:30px}.video-showcase{width:min(100%,560px);aspect-ratio:1.18;max-height:none;margin-inline:auto}.video-copy h2{max-width:700px}}
 
