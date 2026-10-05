@@ -1,10 +1,11 @@
 # Eren Taş — Portfolio
 
-A bilingual portfolio for AI-assisted video, editing, and selected web projects. Built with semantic HTML, responsive CSS, and vanilla JavaScript; there is no build step or runtime dependency. The site includes a persistent light/dark theme switch and direct Bionluk, WhatsApp, and LinkedIn contact links.
+A bilingual portfolio focused on front-end software and web projects, with a separate AI video services page. Built with semantic HTML, responsive CSS, and vanilla JavaScript; there is no build step or runtime dependency. The site includes a persistent light/dark theme switch and clear project-specific contact links.
 
 ## Preview
 
 The site is published with GitHub Pages at <https://erenvelitas.com/>.
+The main page presents software projects first. The navigation link **AI video & editing** opens the separate video services page in a new tab.
 
 ## Video services and project enquiries
 
@@ -13,10 +14,6 @@ The dedicated [video services page](https://erenvelitas.com/isler.html) presents
 ## Featured game
 
 [Play Pitlane Rush](https://erenvelitas.com/pitlane-rush/) or browse its source at <https://github.com/Erentass6/Pitlane-Rush>.
-
-## Video services
-
-The [AI video and editing section](https://erenvelitas.com/#video-ai) describes AI-assisted video concepts, promotional and social content, and editing services.
 
 ## Run locally
 
